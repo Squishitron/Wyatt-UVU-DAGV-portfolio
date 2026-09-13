@@ -9,6 +9,8 @@ public class draggableobject : MonoBehaviour
     Transform clickObject;
     //public to be set in inspector
     public Camera mainCamera;
+    
+
 
     //is this yitch grabbed rn? cause clickObject doesnt constantly update
     bool isGrabbed = false;
@@ -43,6 +45,7 @@ public class draggableobject : MonoBehaviour
 
                 //set yitch grabage to true
                 isGrabbed = true;
+
 
             }
 

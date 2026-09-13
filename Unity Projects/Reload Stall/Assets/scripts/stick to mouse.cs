@@ -7,6 +7,18 @@ public class sticktomouse : MonoBehaviour
     Vector3 myPos;
     Vector3 mousePos;
     public Camera mainCamera;
+    //public sprites to set in inspector
+    public Sprite spriteOpen;
+    public Sprite spriteClosed;
+    private SpriteRenderer spriteRenderer;
+    
+    void Start()
+    {
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -34,6 +46,22 @@ public class sticktomouse : MonoBehaviour
         //Debug.Log(mousePos);
         //Debug.Log(myPos);
         Debug.Log(worldPos);
+
+        //when clicking close the hand
+        if (Input.GetMouseButtonDown(0))
+        {
+
+            spriteRenderer.sprite = spriteClosed;
+
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+
+            spriteRenderer.sprite = spriteOpen;
+
+        }
+        
 
     }
 }

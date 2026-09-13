@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: df54f8f3565187445aeae3d7a16033ac
+guid: d756b38b59f519947a5c0bba8e87fdfc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,145 +97,167 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gun
+      name: flamer barel
       rect:
         serializedVersion: 2
         x: 1
-        y: 71
-        width: 98
-        height: 29
+        y: 65
+        width: 58
+        height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14dfb0a4db7ea0b4daef94dc1344a5da
-      internalID: -1805828664
+      spriteID: 7c320a9e7a0f7dd4784182f5fee2012a
+      internalID: -597409440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet
+      name: flamer stock
       rect:
         serializedVersion: 2
-        x: 65
-        y: 33
-        width: 35
-        height: 14
-      alignment: 9
-      pivot: {x: 0.6248439, y: 0.4108252}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ddb019c2e7ee574ead115a62eb8aa79
-      internalID: -632965716
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: clip
-      rect:
-        serializedVersion: 2
-        x: 58
-        y: 1
-        width: 40
-        height: 33
-      alignment: 9
-      pivot: {x: 0.67166024, y: 0.49369448}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0508d2afbda9f214b81ec31202f15f2f
-      internalID: 1695465812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stock
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 30
-        width: 50
+        x: 62
+        y: 58
+        width: 37
         height: 30
-      alignment: 9
-      pivot: {x: 0.42925513, y: 0.81210977}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c3b10f3c65e89a40ab515d3a628fac2
-      internalID: -321602235
+      spriteID: 9ec7efc8d12ae9540a64aeab63f34439
+      internalID: 676431710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slide
+      name: clasp open
       rect:
         serializedVersion: 2
-        x: 6
-        y: 14
-        width: 23
+        x: 68
+        y: 50
+        width: 28
         height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b78bd5a0f463bf43b68a584f7d05384
-      internalID: 1641983523
+      spriteID: bc853e68356286043b8906c9abfcbe60
+      internalID: -1206004759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bolt
+      name: clasp closed
       rect:
         serializedVersion: 2
-        x: 12
-        y: 7
-        width: 6
+        x: 74
+        y: 44
+        width: 22
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72021825a1bab2947a7cb1a98753bb8d
+      internalID: 700043834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burno ammo
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 20
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f46fe6f65b87fb140a39df934fe6133b
+      internalID: 1852244082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pilot 1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 56
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb136624d517e34dbf6fa485c7b428b
+      internalID: -970178666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pilot 2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 49
+        width: 7
         height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40408375e10c94e48980d6acac6a8e80
-      internalID: -888800840
+      spriteID: e948499c1b1d7d8468509231afa692e6
+      internalID: -1839374445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mag full
+      name: zippo closed
       rect:
         serializedVersion: 2
-        x: 36
-        y: 20
-        width: 19
-        height: 11
+        x: 69
+        y: 16
+        width: 9
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0622532905698a04c8cd42eebadb4b73
-      internalID: -294176281
+      spriteID: 68a5d0bf0d2a10d4296351c539d0de02
+      internalID: 1778051991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mag empty
+      name: zippo open
       rect:
         serializedVersion: 2
-        x: 36
-        y: 7
-        width: 19
-        height: 10
+        x: 78
+        y: 16
+        width: 11
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +288,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 614ced0bcfcd4d44fa495babc7d8da85
-      internalID: -432839891
+      spriteID: 1b04ad9780e3f0d4d82aed83cef8d962
+      internalID: 608301600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zippo spicy
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 16
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f603840e05cc6d94d826b76476339f1b
+      internalID: -503529099
       vertices: []
       indices: 
       edges: []
@@ -276,7 +320,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3da2a299e61de5242914b8373af605c9
+    spriteID: 1c936572f3911ec45b9804971ed7c488
     internalID: 0
     vertices: []
     indices: 
@@ -286,14 +330,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bolt: -888800840
-      bullet: -632965716
-      clip: 1695465812
-      gun: -1805828664
-      mag empty: -432839891
-      mag full: -294176281
-      slide: 1641983523
-      stock: -321602235
+      burno ammo: 1852244082
+      clasp closed: 700043834
+      clasp open: -1206004759
+      flamer barel: -597409440
+      flamer stock: 676431710
+      pilot 1: -970178666
+      pilot 2: -1839374445
+      zippo closed: 1778051991
+      zippo open: 608301600
+      zippo spicy: -503529099
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
