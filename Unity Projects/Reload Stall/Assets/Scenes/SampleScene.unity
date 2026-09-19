@@ -5902,7 +5902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::draggableobject
   mainCamera: {fileID: 521115276}
   isGrabbable: 1
-  ClampX: 1
+  ClampX: 0
   ClampY: 0
   ClampContextual: 0
 --- !u!61 &862811418

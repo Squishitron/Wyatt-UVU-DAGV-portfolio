@@ -20,14 +20,15 @@ public class draggableobject : MonoBehaviour
 
 
     //setting booleans to controll clamping from inspector, x and y respectively
-    public Boolean ClampX = false; //default false
-    public Boolean ClampY = false;//defualt false
+    public Boolean ClampX = false; // default false
+    public Boolean ClampY = false;// defualt false
     //setting boolean for contextual clamping (clamping only applies when grabbing this object)
-    public Boolean ClampContextual = false; //defualt false
+    public Boolean ClampContextual = false; // defualt false
 
     //public Boolean testClamp = false;// this is just temporary to test clamping object by object
 
-    float clampedX;// this is hopefully to get our clamped x to be usable throughout scope without publicing it
+    float clampedX; // this is to store the result of LockMyX
+    float clampedY; // this is to store the result of LockMyY
 
 
     //referencing the gripper object so we can access its script to check against its hover variable
@@ -64,12 +65,12 @@ public class draggableobject : MonoBehaviour
     //VVVV method definition for clamp programs VVVV
     static float LockMyX(bool OnOff, float simplex, Vector3 myPos)//this method is used for locking the X of the parent object, maybe needs a better name
     {
-        //iterates once to lock position
+        //iterates once to lock x position
         if (OnOff == false)
         {
             //sets the middle variable
             simplex = myPos.x;
-            OnOff = true;//dissables repeat setting
+            OnOff = true; // dissables repeat setting
             //return simplex;//return the set value from method to use outside
 
         }
@@ -78,6 +79,23 @@ public class draggableobject : MonoBehaviour
 
     }   
 
+    static float LockMyY(bool OnOff, float simpley, Vector3 myPos)
+    {
+
+        //iterates once to lock y position
+        if (OnOff == false)
+        {
+
+            //sets the middle variable
+            simpley = myPos.y;
+            OnOff = true; // dissables repeat setting
+            //these can be set / reset later when needed
+
+        }
+
+        return simpley; // returns simple y for use in clamping
+
+    }
 
 
     //begin loop
@@ -89,9 +107,12 @@ public class draggableobject : MonoBehaviour
         //just had to think and research for a tad, but it makes sense why in the end, even if it burned almost 2 hours
         grippers = GameObject.Find("GRIPPAH");
 
-        clampedX = LockMyX(false, clampedX, transform.position);//false OnOff to get x to clamp and remain clamped, clampedX for use in clamping, and transform.position to set clamp x based off local position
+        clampedX = LockMyX(false, clampedX, transform.position); // false OnOff to get x to clamp and remain clamped, clampedX for use in clamping, and transform.position to set clamp x based off local position
         //called in start for now for testing
         //remember to store the result
+
+        clampedY = LockMyY(false, clampedY, transform.position); //  false OnOff to get y to clamp and remain clamped, clampedY for use in clamping, and tranform.position to set clamp y based off local position
+        //sort of helps when you actually call the method ey?
 
     }
 
@@ -162,7 +183,7 @@ public class draggableobject : MonoBehaviour
 
 
         //VVV CLAMPING BLOCKS VVV
-        if (ClampX == true)
+        if (ClampX == true) // clamp parent objects x value via method when clamp x is set to true in inspector
         {
 
             transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);//when true, forever set x to the clamped value, but allow the others to change
@@ -173,12 +194,18 @@ public class draggableobject : MonoBehaviour
 
         }
 
+        if (ClampY == true) //  clamp parent objects y value via method when clamp x is set to true in inspector
+        {
+
+            transform.position = new Vector3(transform.position.x, clampedY, transform.position.z);
+
+        }
 
 
         /*ok so its testing time
         lets see if we can find whatever parrent object this script is attached to's name and print it to console
         there should be a tad bit of noise in the console because multiple objects already have this script attached
-        hopefully in the long run this wont cause too much of a performance impact, but we if we needed to out of desperation
+        hopefully in the long run this wont cause too much of a performance impact, but if we needed to out of desperation
         we could just in theory bring back a copy of the mouse ray script so that we could just enable dissable this on the fly as needed
         depending on whether or not this thing is getting hovered over by the mouse*/
 

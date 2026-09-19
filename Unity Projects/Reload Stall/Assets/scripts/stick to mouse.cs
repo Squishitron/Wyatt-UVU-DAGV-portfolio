@@ -27,7 +27,7 @@ public class sticktomouse : MonoBehaviour
     //nothing by default
     //public so it can be referenced in draggable, but hidden so nothing appears in inspector because I dont want manual control of this one
     [HideInInspector]
-    public String hoveredOver = "nothing";
+    public String hoveredOver = "nothing";//this is our ONLY hide in inspector public variable so far, and I would rather keep it that way if possible
 
     
     //called at start
