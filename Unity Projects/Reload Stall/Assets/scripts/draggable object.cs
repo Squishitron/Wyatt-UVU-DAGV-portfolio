@@ -12,33 +12,27 @@ public class draggableobject : MonoBehaviour
     Transform clickObject;
     //public to be set in inspector
     public Camera mainCamera;
+
+
     //setting variable to track if this object is grabbable or not, public idealy with default false
     //if that public could be a dropdown menu would be super ideal
     public Boolean isGrabbable = false;
+
+
+    //setting booleans to controll clamping from inspector, x and y respectively
+    public Boolean ClampX = false; //default false
+    public Boolean ClampY = false;//defualt false
+    //setting boolean for contextual clamping (clamping only applies when grabbing this object)
+    public Boolean ClampContextual = false; //defualt false
+
+    //public Boolean testClamp = false;// this is just temporary to test clamping object by object
+
+    float clampedX;// this is hopefully to get our clamped x to be usable throughout scope without publicing it
+
+
     //referencing the gripper object so we can access its script to check against its hover variable
-    //damn, not allowed to use find
-    //so thisVVVV is returning null, maybe if we just directly find the object and its variable and just store the variable we want right away?
-
-    //private GameObject grippers = GameObject.Find("GRIPPAH");
-
-    //so apparently .Find has to be called in start or update and I've been running in circles for no fucking reason and now Im disgruntled
-    //new plan, declare private gameobject here, leave it empty, in start find the other fucking object (which actually makes sense now Im thinking about it)
-    //because none of the stuff we're sniffing for actually happens until AFTER the game starts running, so makes sense in hindsight
-    //anyway, we then check against it to see if grabby stuff happens
-    
     //ok its defined, now fill it during start VVV
     GameObject grippers;
-
-
-
-
-    //so anyway this was all garbo in the end VVV
-    //it pointed me towards trying some "object sterilization or something" we'll try that
-    //ok I think I found the syntax, its serialize / serialized
-    //[SerializeField] private sticktomouse stickymouse;
-    //ok, in theory this should allow us to use variables from the stick to mouse script
-    //it might have except we need the object specific version and .find just works actually like actually cause lying internet ai
-
 
 
 
@@ -61,20 +55,32 @@ public class draggableobject : MonoBehaviour
     bool mouseDown = false;
 
 
+    //^^^^ script variable definitions ^^^^
 
-    /*
-    string GetMouseTest()
+
+
+
+
+    //VVVV method definition for clamp programs VVVV
+    static float LockMyX(bool OnOff, float simplex, Vector3 myPos)//this method is used for locking the X of the parent object, maybe needs a better name
     {
+        //iterates once to lock position
+        if (OnOff == false)
+        {
+            //sets the middle variable
+            simplex = myPos.x;
+            OnOff = true;//dissables repeat setting
+            //return simplex;//return the set value from method to use outside
 
-        return sticktoMousetest;
+        }
 
-    }
-    so turns out we dont actually need a get command because protection level BS but also because we can
-    just directly call for the variable from stick to mouse directly, so we should be good to go as long as we can
-    check name and tag the same way for parent object of this script to check against the mouse version
-    to allow or dissalow the dragging function so it will not fire to everything all at once like it did before */
+        return simplex; // does this work? it does, we return simple x here now to avoid errors
+
+    }   
 
 
+
+    //begin loop
     void Start()
     {
 
@@ -82,6 +88,10 @@ public class draggableobject : MonoBehaviour
         // YES YES YES YES YES YES YES YES YES YES YES IT FINALLY FUCKING WORKED
         //just had to think and research for a tad, but it makes sense why in the end, even if it burned almost 2 hours
         grippers = GameObject.Find("GRIPPAH");
+
+        clampedX = LockMyX(false, clampedX, transform.position);//false OnOff to get x to clamp and remain clamped, clampedX for use in clamping, and transform.position to set clamp x based off local position
+        //called in start for now for testing
+        //remember to store the result
 
     }
 
@@ -118,19 +128,17 @@ public class draggableobject : MonoBehaviour
         }
         //testing to see if this ^ is working
         Debug.Log(isGrabbed);
-        //so apparently .find does just fucking work afterall, and google AI is a lying son of a bitch like always
-        //so Imma go back and remove the serialization BS
+
         //Debug.Log(GameObject.Find("GRIPPAH"));
+        
         //lets see if this works
         //hrmm, grippers appears to be returning NULL
         //that would explain why it didnt work
         Debug.Log(grippers.GetComponent<sticktomouse>().hoveredOver);
-        //so now its filling with a game object, but it wont fucking let me do gameobject things and its saying something about "method groups"
-        //so turns out I was just missing a pair of parentheses AFTER the fucking triangle ones for some reason even tho I did it before and should
-        //have known better and now Im kinda mad at myself
-        //congrats at costing almost 2 hours parentheses
-        //it works now, Imma leave it uncommented for now so I can remember it for a little while
-
+        
+        //so turns out I was just missing a pair of parentheses AFTER the triangle ones for some reason even tho I did it before and should
+        //know better
+        
 
 
         //when letting go
@@ -153,6 +161,19 @@ public class draggableobject : MonoBehaviour
 
 
 
+        //VVV CLAMPING BLOCKS VVV
+        if (ClampX == true)
+        {
+
+            transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);//when true, forever set x to the clamped value, but allow the others to change
+
+            //scope issues stand by, we're not preserving the simplex value
+            //block of code has been moved to a method to encourage reusability and to fix scope problems
+
+
+        }
+
+
 
         /*ok so its testing time
         lets see if we can find whatever parrent object this script is attached to's name and print it to console
@@ -165,10 +186,15 @@ public class draggableobject : MonoBehaviour
         //there is absolutley no didly freaking way its as simple as just fumfing "THIS"
         //whatever I guess this works, so we can make a quick block to check if whatever is being hovered by the mouse just matches our own name to drag
         //brb gonna draw a quick stupid ball so I can just mass produce grabbable objects real quick for testing
-        
+
         //Debug.Log(this.gameObject.name);
 
-
+        //if (testClamp == true)//THE METHOD WORKKSSS LETS GOOOO!
+        {
+         
+            //Debug.Log(clampedX);// I hope this works, the method is called in start, but if it survives as should be to update then we can use it
+        
+        }
     }
 
 

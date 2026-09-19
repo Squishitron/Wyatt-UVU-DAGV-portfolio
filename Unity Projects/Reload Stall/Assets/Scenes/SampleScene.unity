@@ -708,7 +708,7 @@ Transform:
   m_GameObject: {fileID: 531350857}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.730758, y: 18.102173, z: 0}
+  m_LocalPosition: {x: 12.987, y: 16.776, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -728,6 +728,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::draggableobject
   mainCamera: {fileID: 521115276}
   isGrabbable: 1
+  ClampX: 0
+  ClampY: 0
+  ClampContextual: 0
 --- !u!61 &531350861
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5879,7 +5882,7 @@ Transform:
   m_GameObject: {fileID: 862811414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.682316, y: 16.83343, z: 0}
+  m_LocalPosition: {x: 12.853, y: 18.259, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5899,6 +5902,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::draggableobject
   mainCamera: {fileID: 521115276}
   isGrabbable: 1
+  ClampX: 1
+  ClampY: 0
+  ClampContextual: 0
 --- !u!61 &862811418
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6123,7 +6129,7 @@ Transform:
   m_GameObject: {fileID: 1203160687}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.959875, y: 18.431404, z: 0}
+  m_LocalPosition: {x: 13.442, y: 16.792, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6143,6 +6149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::draggableobject
   mainCamera: {fileID: 521115276}
   isGrabbable: 1
+  ClampX: 0
+  ClampY: 0
+  ClampContextual: 0
 --- !u!61 &1203160691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6276,7 +6285,7 @@ Transform:
   m_GameObject: {fileID: 1216309930}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.031883, y: 17.05024, z: 0}
+  m_LocalPosition: {x: 12.497, y: 16.861, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6296,6 +6305,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::draggableobject
   mainCamera: {fileID: 521115276}
   isGrabbable: 1
+  ClampX: 0
+  ClampY: 0
+  ClampContextual: 0
 --- !u!61 &1216309934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6451,6 +6463,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::draggableobject
   mainCamera: {fileID: 521115276}
   isGrabbable: 0
+  ClampX: 0
+  ClampY: 0
+  ClampContextual: 0
 --- !u!1 &1329820224
 GameObject:
   m_ObjectHideFlags: 0
@@ -7004,6 +7019,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::draggableobject
   mainCamera: {fileID: 521115276}
   isGrabbable: 0
+  ClampX: 0
+  ClampY: 0
+  ClampContextual: 0
 --- !u!61 &1756640154
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7342,6 +7360,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::draggableobject
   mainCamera: {fileID: 521115276}
   isGrabbable: 1
+  ClampX: 0
+  ClampY: 0
+  ClampContextual: 0
 --- !u!61 &1936590947
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7475,7 +7496,7 @@ Transform:
   m_GameObject: {fileID: 1944145712}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.381452, y: 17.05827, z: 0}
+  m_LocalPosition: {x: 12.064, y: 16.812, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7495,6 +7516,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::draggableobject
   mainCamera: {fileID: 521115276}
   isGrabbable: 1
+  ClampX: 0
+  ClampY: 0
+  ClampContextual: 0
 --- !u!61 &1944145716
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7741,6 +7765,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::draggableobject
   mainCamera: {fileID: 521115276}
   isGrabbable: 1
+  ClampX: 0
+  ClampY: 0
+  ClampContextual: 0
 --- !u!61 &2028207534
 BoxCollider2D:
   m_ObjectHideFlags: 0

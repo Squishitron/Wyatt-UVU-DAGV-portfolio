@@ -24,8 +24,8 @@ public class sticktomouse : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     //setting up for the mouse hover, so we can use it to communicate whats being hovered over
-    //nothing by default, to change with hovering
-    //public so it can be referenced in draggable, but hidden so no appears in inspector because I dont want manual control of this one
+    //nothing by default
+    //public so it can be referenced in draggable, but hidden so nothing appears in inspector because I dont want manual control of this one
     [HideInInspector]
     public String hoveredOver = "nothing";
 
@@ -43,7 +43,7 @@ public class sticktomouse : MonoBehaviour
     void Update()
     {
 
-        //finding current mouse position
+        //finding current screenspace mouse position
         mousePos = Input.mousePosition;
         //setting default depth
         mousePos.z = 5f;
@@ -120,6 +120,7 @@ public class sticktomouse : MonoBehaviour
 
 
         //note to me, maybe dont split these functionalities apart from one another with the raycast, maybe fix that later
+
         //updating myPos to match worldPos of the mouse cursor
         myPos = worldPos;
 
@@ -138,7 +139,7 @@ public class sticktomouse : MonoBehaviour
         //when open or closed depending on what grab animation those specific objects should use
         //for now tho these will work, because this prototype needs to get done before you worry about polish you dingdong
 
-        //when clicking close the hand
+        //when left clicking close the hand
         if (Input.GetMouseButtonDown(0))
         {
 
@@ -146,7 +147,7 @@ public class sticktomouse : MonoBehaviour
 
         }
 
-        //when unclicking open the hand
+        //when un left clicking open the hand
         if (Input.GetMouseButtonUp(0))
         {
 
