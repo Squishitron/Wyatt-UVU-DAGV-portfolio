@@ -2,38 +2,45 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// ^^^^ imports ^^^^ ----------------------------------------------------------------------------------------------------------------------------------
+
+
+// VVVV class and settup VVVV -------------------------------------------------------------------------------------------------------------------------
+
 public class sticktomouse : MonoBehaviour
 {
-    //not actually sure what these do
-    //I really fucking wish I knew what this did but I dont have time to research that rabbit hole rn
-    //just fuffing trust the docs for a minute me
+    // not actually sure what these do
+    // I really fucking wish I knew what this did but I dont have time to research that rabbit hole rn
+    // just fuffing trust the docs for a minute me
     RaycastHit2D raycastHit2D;
     Transform clickObject;
 
-    //for use later to find world position and stick this things position to the mouse
+    // for use later to find world position and stick this things position to the mouse
     Vector3 myPos;
     Vector3 mousePos;
 
-    //setting for main camera in inspector
+    // setting for main camera in inspector
     public Camera mainCamera;
-    //public sprites to set in inspector
+    // public sprites to set in inspector
     public Sprite spriteOpen;
     public Sprite spriteClosed;
 
-    //finding sprite renderer for scripts use
+    // finding sprite renderer for scripts use
     private SpriteRenderer spriteRenderer;
 
-    //setting up for the mouse hover, so we can use it to communicate whats being hovered over
-    //nothing by default
-    //public so it can be referenced in draggable, but hidden so nothing appears in inspector because I dont want manual control of this one
+    // setting up for the mouse hover, so we can use it to communicate whats being hovered over
+    // nothing by default
+    // public so it can be referenced in draggable, but hidden so nothing appears in inspector because I dont want manual control of this one
     [HideInInspector]
-    public String hoveredOver = "nothing";//this is our ONLY hide in inspector public variable so far, and I would rather keep it that way if possible
+    public String hoveredOver = "nothing"; // this is our ONLY hide in inspector public variable so far, and I would rather keep it that way if possible
+
+    // ^^^^ settup and varaibles ^^^^ ------------------------------------------------------------------------------------------------------------------
 
     
-    //called at start
+    // called at start
     void Start()
     {
-        //setting spriterender to this objects component for easier use later
+        // setting spriterender to this objects component for easier use later
         spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
@@ -43,26 +50,24 @@ public class sticktomouse : MonoBehaviour
     void Update()
     {
 
-        //finding current screenspace mouse position
+        // finding current screenspace mouse position
         mousePos = Input.mousePosition;
-        //setting default depth
+        // setting default depth
         mousePos.z = 5f;
 
-        //converting mouse position from screen to world space
+        // converting mouse position from screen to world space
         Vector3 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
 
-
-
-        //setting ray pos and direciton to match mouse.... I think (not totally sure)
+        // setting ray pos and direciton to match mouse.... I think (not totally sure)
         Ray mouseRay = mainCamera.ScreenPointToRay(mousePos);
 
-        //using our mouseRay to actually shoot a ray and check for object collisions with a 2D collider
+        // using our mouseRay to actually shoot a ray and check for object collisions with a 2D collider
         raycastHit2D = Physics2D.Raycast(mouseRay.origin, mouseRay.direction);
         clickObject = raycastHit2D ? raycastHit2D.collider.transform : null;
         
-        //ok, time for the real hovering ID block
-        //so we got the other side working, but now we can teleport objects, so we need to make it so the hover ID resets when you're not
-        //actively hovering over something
+        // ok, time for the real hovering ID block
+        // so we got the other side working, but now we can teleport objects, so we need to make it so the hover ID resets when you're not
+        // actively hovering over something
         if (clickObject)
         {
 
@@ -76,7 +81,6 @@ public class sticktomouse : MonoBehaviour
             hoveredOver = "NOTHING!!!! HAHAHAHAHHAHA";
 
         }
-
 
 
         /*
@@ -112,34 +116,24 @@ public class sticktomouse : MonoBehaviour
         */
 
 
-
-
-
         //myPos = mousePos;
-        //unused
+        // unused
 
 
-        //note to me, maybe dont split these functionalities apart from one another with the raycast, maybe fix that later
+        // note to me, maybe dont split these functionalities apart from one another with the raycast, maybe fix that later
 
-        //updating myPos to match worldPos of the mouse cursor
+        // updating myPos to match worldPos of the mouse cursor
         myPos = worldPos;
 
-        //moves the scripts attached object to new myPos
+        // moves the scripts attached object to new myPos
         transform.position = myPos;
 
 
+        // these VVVV down there will likely change in the future when mouse context is added so that different objects will have different sprites
+        // when open or closed depending on what grab animation those specific objects should use
+        // for now tho these will work, because this prototype needs to get done before you worry about polish you dingdong
 
-        //diagnostic BS
-        //Debug.Log(mousePos);
-        //Debug.Log(myPos);
-        //Debug.Log(worldPos);
-
-
-        //these VVVV down there will likely change in the future when mouse context is added so that different objects will have different sprites
-        //when open or closed depending on what grab animation those specific objects should use
-        //for now tho these will work, because this prototype needs to get done before you worry about polish you dingdong
-
-        //when left clicking close the hand
+        // when left clicking close the hand
         if (Input.GetMouseButtonDown(0))
         {
 
@@ -147,14 +141,21 @@ public class sticktomouse : MonoBehaviour
 
         }
 
-        //when un left clicking open the hand
+        // when un left clicking open the hand
         if (Input.GetMouseButtonUp(0))
         {
 
             spriteRenderer.sprite = spriteOpen;
 
         }
-        
+
+
+        // VVVV diagnostics VVVV ------------------------------------------------------------------------------------------------------------------------
+
+        // diagnostic BS
+        //Debug.Log(mousePos);
+        //Debug.Log(myPos);
+        //Debug.Log(worldPos);
 
     }
 }
