@@ -1,5 +1,6 @@
 using System;
-using UnityEditor.UI;
+//using UnityEditor.Experimental.GraphView;
+//using UnityEditor.UI;
 using UnityEngine;
 
 // ^^^^ import and stuff ^^^^ ------------------------------------------------------------------------------------------------------------------------
@@ -166,14 +167,14 @@ public class draggableobject : MonoBehaviour
 
         }
         // testing to see if this ^ is working
-        Debug.Log(isGrabbed);
+        //Debug.Log(isGrabbed);
 
         //Debug.Log(GameObject.Find("GRIPPAH"));
         
         // lets see if this works
         // hrmm, grippers appears to be returning NULL
         // that would explain why it didnt work
-        Debug.Log(grippers.GetComponent<sticktomouse>().hoveredOver);
+        //Debug.Log(grippers.GetComponent<sticktomouse>().hoveredOver);
         
         // so turns out I was just missing a pair of parentheses AFTER the triangle ones for some reason even tho I did it before and should
         // know better
@@ -197,6 +198,9 @@ public class draggableobject : MonoBehaviour
             transform.position = mouseWorld;
 
         }
+        // grabbing really needs an update to break when gettig too far away from the clamped object
+        // we also need something to reset the clamped value to "home position" just in case when its contextual
+        // that might mean its easier to change contextual all together, I need to think
 
 
 
