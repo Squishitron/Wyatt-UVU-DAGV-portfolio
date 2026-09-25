@@ -1,4 +1,6 @@
 using System;
+using Unity.VisualScripting;
+
 //using UnityEditor.Experimental.GraphView;
 //using UnityEditor.UI;
 using UnityEngine;
@@ -159,13 +161,19 @@ public class draggableobject : MonoBehaviour
                 // maybe if we just perminantly call lockmyX/Y perminantly as false when clampX or clampY is false, so it correctly updates position while off
                 // as well as preventing errors when starting unclamped
 
-                // update, that theory does not work, we may need to refactor how and when we call clamping
                 // update 2, I forgot to save the return value back to clampedY and clamped X, I will try again using my own method correctly
                 // update 3, it functions completely as intended now! even removes no set errors at the start!
+
+                // when mouse flicking it is possible to grab two objects at the same time, so we need some way to stop this so contextual doesnt
+                // break. Especially since I want a different "bounds" script now that I've thought things over.
+                // since with some objects we want the clamping to not be able to leave the parent object
+                // idealy this should work along side contextual
 
             }    
 
         }
+
+
         // testing to see if this ^ is working
         //Debug.Log(isGrabbed);
 
