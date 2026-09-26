@@ -1,6 +1,5 @@
 using System;
 using Unity.VisualScripting;
-
 //using UnityEditor.Experimental.GraphView;
 //using UnityEditor.UI;
 using UnityEngine;
@@ -38,6 +37,9 @@ public class draggableobject : MonoBehaviour
     float clampedX; // this is to store the result of LockMyX
     float clampedY; // this is to store the result of LockMyY
 
+    private bool priorityX = false; // stores whether clamp to bounds X has priority, false by default because priority should not kick in until moving out of bounds
+    bool priorityY = false; // stores whether clamp to bounds Y has priority
+    Vector3 grabbedPos; // this is to be used to store piece by piece the vector3 positions of the parent objects position
 
     // referencing the gripper object so we can access its script to check against its hover variable
     // ok its defined, now fill it during start VVV
@@ -102,6 +104,25 @@ public class draggableobject : MonoBehaviour
         }
 
         return simpley; // returns simple y for use in clamping
+
+    }
+
+    public void setPriority(bool setter, string XorY) // this should funciton to be used outside this script to set priority of parent object
+    {
+
+        if (XorY == "x")
+        {
+
+            priorityX = setter;
+
+        }
+
+        if (XorY == "y")
+        {
+
+            priorityY = setter;
+
+        }
 
     }
 
@@ -195,6 +216,10 @@ public class draggableobject : MonoBehaviour
         {
 
             isGrabbed = false; // this is okay, since everything should get ungrabbed when mouse is let go regardless
+            setPriority(false, "x");
+            setPriority(false, "y"); // maybe if we reset when letting go it might work?
+            // problem would then be youd have to let go to go the other way
+            // thats progress
 
         }
 
@@ -203,18 +228,34 @@ public class draggableobject : MonoBehaviour
         if (isGrabbed == true)
         {
 
-            transform.position = mouseWorld;
+            if (priorityX == false) // allow sticking to mouse when this script has priority
+            {
+
+                grabbedPos.x = mouseWorld.x;
+
+            }
+
+            if (priorityY == false) // allow sticking to mouse when this script has priority
+            {
+
+                grabbedPos.y = mouseWorld.y;
+
+            }
+            
+            grabbedPos.z = 5f;
+            transform.position = grabbedPos;
 
         }
         // grabbing really needs an update to break when gettig too far away from the clamped object
         // we also need something to reset the clamped value to "home position" just in case when its contextual
         // that might mean its easier to change contextual all together, I need to think
 
+        // making some change ups to is grabbed to work in conjunction to the *NEW* clamping funcitons
 
 
-        // VVV CLAMPING BLOCKS VVV -----------------------------------------------------------------------------------------------------------------------
+        // VVVV CLAMPING BLOCKS VVVV -----------------------------------------------------------------------------------------------------------------------
 
-        if (ClampX == true & ClampContextual == false) // clamp parent objects x value via method when clamp x is set to true in inspector and contextual is off
+        /*if (ClampX == true & ClampContextual == false) // clamp parent objects x value via method when clamp x is set to true in inspector and contextual is off
         {
 
             transform.position = new Vector3(clampedX, transform.position.y, transform.position.z); // when true, forever set x to the clamped value, but allow the others to change
@@ -276,7 +317,7 @@ public class draggableobject : MonoBehaviour
 
             }
 
-        }
+        }*/ // we in theory dont need the old clamping feature anymore
 
         // ^^^^ scripting ^^^^ -------------------------------------------------------------------------------------------------------------------------
 
@@ -298,6 +339,9 @@ public class draggableobject : MonoBehaviour
 
         //Debug.Log(this.gameObject.name);
 
+        Debug.Log(priorityY);
+        Debug.Log(priorityX);
+
         //if (testClamp == true)//THE METHOD WORKKSSS LETS GOOOO!
         {
 
@@ -309,3 +353,5 @@ public class draggableobject : MonoBehaviour
 
 
 }
+
+// Im going to try to rewrite the move to mouse part of this function so we can enable dissable them based purely on priority without breaking the grabbed condition
