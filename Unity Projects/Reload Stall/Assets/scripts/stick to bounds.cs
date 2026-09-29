@@ -1,8 +1,4 @@
-using System.Drawing;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
-using UnityEngine.UIElements;
 // ooo interesting, visual studio seems to auto import modules you pull from, thats cool
 //problem now is that it doesnt unpull those modules when you stop using them.... ah well
 
@@ -21,6 +17,13 @@ public class sticktobounds : MonoBehaviour
     private float meSizeX; // this variable is to store me's pixel size in the x direction
     private float meSizeY; // this varaible is to store me's pixel size in the y direction
 
+    // spring settup
+    public bool isSpringy = false; // set whether or not the object is springy in inspector
+    public GameObject springTarget; // set gameobject to use for spring target position
+    private bool springOn = false; // controls whether or not spring is currently allowed to operate without changing isSpringy's setting
+    public float lerpRate; // how much to lerp by per frame, essentially spring strength
+
+    // VVVV PROGRAM START VVVV ------------------------------------------------------------------------------------------------------------------------------
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -118,7 +121,35 @@ public class sticktobounds : MonoBehaviour
 
             }
 
+            // VVVV springy stuvs VVVV ---------------------------------------------------------------------------------------------------------------------
+            if (grabbedObject.GetComponent<draggableobject>().getGrabbed())
+            {
+
+                springOn = false; // dissables springy's operation if the target object is grabbed
+
+            }
+            else
+            {
+
+                if (isSpringy == true) // checks to see if springy is allowed
+                {
+
+                    springOn = true; // if springy is allowed and target object is not grabbed then allow the operation of springy
+
+                }
+
+            }
+
+            if (springOn == true & isSpringy == true)
+            {
+
+                grabbedObject.transform.position = Vector3.Lerp(grabbedObject.transform.position, springTarget.transform.position, lerpRate);
+
+            }
+
         }
+
+        // VVVV DEBUGGING VVVV ------------------------------------------------------------------------------------------------------------------------------
 
         // trying safety check stuff
         //Debug.Log(grabbedObject); // just testing somethings: so gameobject does return null when unassigned, this is a good sign
@@ -257,3 +288,6 @@ public class sticktobounds : MonoBehaviour
 
 // I elect to leave the spring alone for now, because I have other homework to finish
 // spring mode can come tomorrow
+
+// ok its tomorrow, spring mode time
+// step one, settup

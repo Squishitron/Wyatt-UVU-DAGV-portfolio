@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: df54f8f3565187445aeae3d7a16033ac
+guid: 78f4b22c0fa5959488decd69295ab8b8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,177 +97,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gun
+      name: status_mag in
       rect:
         serializedVersion: 2
-        x: 1
-        y: 71
-        width: 98
-        height: 29
-      alignment: 9
-      pivot: {x: 0.6358845, y: -0.16726948}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 14dfb0a4db7ea0b4daef94dc1344a5da
-      internalID: -1805828664
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bullet
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 33
-        width: 35
-        height: 14
-      alignment: 9
-      pivot: {x: 0.6248439, y: 0.4108252}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ddb019c2e7ee574ead115a62eb8aa79
-      internalID: -632965716
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: clip
-      rect:
-        serializedVersion: 2
-        x: 58
-        y: 1
-        width: 40
-        height: 33
-      alignment: 9
-      pivot: {x: 0.67166024, y: 0.49369448}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0508d2afbda9f214b81ec31202f15f2f
-      internalID: 1695465812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stock
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 30
-        width: 50
-        height: 30
-      alignment: 9
-      pivot: {x: 0.32383138, y: 0.41445872}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c3b10f3c65e89a40ab515d3a628fac2
-      internalID: -321602235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: slide
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 14
-        width: 23
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b78bd5a0f463bf43b68a584f7d05384
-      internalID: 1641983523
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bolt
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 7
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40408375e10c94e48980d6acac6a8e80
-      internalID: -888800840
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mag full
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 20
-        width: 19
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0622532905698a04c8cd42eebadb4b73
-      internalID: -294176281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mag empty
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 7
-        width: 19
+        x: 2
+        y: 26
+        width: 46
         height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 614ced0bcfcd4d44fa495babc7d8da85
-      internalID: -432839891
+      spriteID: 187789d3ec23b4f46843439d5803164f
+      internalID: -750219416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: status_gun ready
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 9
+        width: 43
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2cacaa5f6e6d04e9e89a575a138c4a
+      internalID: -901294769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: status_ empty
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 4
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04b60403ef1089a48ac2ce22f3307fb4
+      internalID: 2138296713
       vertices: []
       indices: 
       edges: []
@@ -276,7 +166,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3da2a299e61de5242914b8373af605c9
+    spriteID: e54c27de19e29cd41b0aeb8fbe07c49a
     internalID: 0
     vertices: []
     indices: 
@@ -286,14 +176,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bolt: -888800840
-      bullet: -632965716
-      clip: 1695465812
-      gun: -1805828664
-      mag empty: -432839891
-      mag full: -294176281
-      slide: 1641983523
-      stock: -321602235
+      status_ empty: 2138296713
+      status_gun ready: -901294769
+      status_mag in: -750219416
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

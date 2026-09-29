@@ -27,10 +27,10 @@ public class draggableobject : MonoBehaviour
 
 
     // setting booleans to controll clamping from inspector, x and y respectively
-    public Boolean ClampX = false; // default false
-    public Boolean ClampY = false;// defualt false
+    //public Boolean ClampX = false; // default false
+    //public Boolean ClampY = false;// defualt false
     // setting boolean for contextual clamping (clamping only applies when grabbing this object)
-    public Boolean ClampContextual = false; // defualt false
+    //public Boolean ClampContextual = false; // defualt false
 
     // public Boolean testClamp = false;// this is just temporary to test clamping object by object
 
@@ -125,7 +125,22 @@ public class draggableobject : MonoBehaviour
         }
 
     }
+    // ^^^^ clamped blocks (unused) ^^^^ -------------------------------------------------------------------------------------------------------------
+    // VVVV getter and setters (curently only for springy) VVVV --------------------------------------------------------------------------------------
 
+    public bool getGrabbed() // returns the state of this objects grab, used for other scripts
+    {
+
+        return isGrabbed;
+
+    }
+
+    public void setGrabbed(bool x) // sets parent objects grabbed state externally *not used internally* currently used for bullet spawn handler
+    {
+
+        isGrabbed = x; // hrmmm doesnt seem to work
+
+    }
 
     // begin loop ------------------------------------------------------------------------------------------------------------------------------------
     void Start()
@@ -339,8 +354,8 @@ public class draggableobject : MonoBehaviour
 
         //Debug.Log(this.gameObject.name);
 
-        Debug.Log(priorityY);
-        Debug.Log(priorityX);
+        //Debug.Log(priorityY);
+        //Debug.Log(priorityX);
 
         //if (testClamp == true)//THE METHOD WORKKSSS LETS GOOOO!
         {
@@ -348,6 +363,7 @@ public class draggableobject : MonoBehaviour
             //Debug.Log(clampedX); // I hope this works, the method is called in start, but if it survives as should be to update then we can use it
 
         }
+
     }
 
 
