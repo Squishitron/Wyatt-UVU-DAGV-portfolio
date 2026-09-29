@@ -86,8 +86,8 @@ public class boltPrimer : MonoBehaviour
         }
 
         // DEBUG -------------------------------------------------------------------------------------------------------------------------------------------------
-        Debug.Log(ReadySteps);
-        Debug.Log(StatusReady);
+        //Debug.Log(ReadySteps);
+        //Debug.Log(StatusReady);
 
     }
 

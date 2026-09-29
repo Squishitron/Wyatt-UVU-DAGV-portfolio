@@ -33,6 +33,8 @@ public class sticktomouse : MonoBehaviour
     // public so it can be referenced in draggable, but hidden so nothing appears in inspector because I dont want manual control of this one
     [HideInInspector]
     public String hoveredOver = "nothing"; // this is our ONLY hide in inspector public variable so far, and I would rather keep it that way if possible
+    [HideInInspector]
+    public string hoveredOverParent = "nothing"; // this is to hopefully solve the grab copies of a thing problem so the game is repeateable
 
     // ^^^^ settup and varaibles ^^^^ ------------------------------------------------------------------------------------------------------------------
 
@@ -156,6 +158,7 @@ public class sticktomouse : MonoBehaviour
         //Debug.Log(mousePos);
         //Debug.Log(myPos);
         //Debug.Log(worldPos);
+        //Debug.Log(hoveredOver);
 
     }
 }
