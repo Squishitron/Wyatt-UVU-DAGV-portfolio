@@ -34,7 +34,7 @@ public class sticktomouse : MonoBehaviour
     [HideInInspector]
     public String hoveredOver = "nothing"; // this is our ONLY hide in inspector public variable so far, and I would rather keep it that way if possible
     [HideInInspector]
-    public string hoveredOverParent = "nothing"; // this is to hopefully solve the grab copies of a thing problem so the game is repeateable
+    public String hoveredOverParent = "nothing"; // this is to hopefully solve the grab copies of a thing problem so the game is repeateable
 
     // ^^^^ settup and varaibles ^^^^ ------------------------------------------------------------------------------------------------------------------
 
@@ -75,12 +75,15 @@ public class sticktomouse : MonoBehaviour
 
             hoveredOver = raycastHit2D.collider.name;
             //Debug.Log(hoveredOver);
+            hoveredOverParent = raycastHit2D.collider.transform.root.gameObject.name; // this gets not the direct parent of colider, but the objects parent, and that gives an error when what is hovered does not have a parent
+            // lets see if changing this to root parent gets the base parent of single objects as well
 
         }
         else
         {
 
             hoveredOver = "NOTHING!!!! HAHAHAHAHHAHA";
+            hoveredOverParent = "yeharharhar";
 
         }
 
@@ -159,6 +162,7 @@ public class sticktomouse : MonoBehaviour
         //Debug.Log(myPos);
         //Debug.Log(worldPos);
         //Debug.Log(hoveredOver);
+        //Debug.Log(hoveredOverParent);
 
     }
 }

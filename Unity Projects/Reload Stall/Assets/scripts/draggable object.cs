@@ -187,7 +187,7 @@ public class draggableobject : MonoBehaviour
             // class name
 
             // FINALLY YES YES YES YES YES YES YES YES WE CAN GRAB INDIVIDUAL OBJECTS NOW!!!!
-            if (this.gameObject.name == grippers.GetComponent<sticktomouse>().hoveredOver & isGrabbable == true) // query if object name mathes what the moues hovers over, then if grabbable then proceed
+            if (this.gameObject.name == grippers.GetComponent<sticktomouse>().hoveredOver & isGrabbable == true & this.gameObject.transform.root.gameObject.name == grippers.GetComponent<sticktomouse>().hoveredOverParent) // query if object name mathes what the moues hovers over, then if grabbable then proceed
             {
 
                 isGrabbed = true;
@@ -204,6 +204,7 @@ public class draggableobject : MonoBehaviour
                 // break. Especially since I want a different "bounds" script now that I've thought things over.
                 // since with some objects we want the clamping to not be able to leave the parent object
                 // idealy this should work along side contextual
+                // I changed the check for this block to include the objects root parent, this allows multiple copies or clones to function seperately
 
             }    
 
