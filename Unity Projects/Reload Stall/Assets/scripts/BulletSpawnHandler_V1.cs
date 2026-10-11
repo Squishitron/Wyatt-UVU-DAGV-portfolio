@@ -66,6 +66,7 @@ public class BulletSpawnHandler_V1 : MonoBehaviour
 
                 spawnParticle(); // moving this up here so it happens right before the spawn object despawns
                 // should allow us to spawn this in the correct position right as the spawn object itself despawns
+                GameObject.Find("Canvas").GetComponent<MoneyManager>().changeMoney(-5); // apologies for hard coding this one teensy part, please dont roast me on a pit fire
 
             }
 

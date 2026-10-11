@@ -26,6 +26,18 @@ public class boltPrimer : MonoBehaviour
 
     }
 
+    public void resetPrimed()
+    {
+
+        // calling these here out from start, since on reset we need to set the bolt back to its initial state
+        PullForwardCheck.GetComponent<BoxCollider2D>().enabled = false; // setting second step to false until its called for
+        PullBackCheck.GetComponent<BoxCollider2D>().enabled = true; // setting first step to true until its completed
+        ReadySteps = 0; // reseting ready steps to zero
+        StatusReady = false; // reseting ready status flag to false
+        BoltObject.GetComponent<draggableobject>().enabled = true; // resetting the bolt object to be draggable again
+
+    }
+
     // On Collision ------------------------------------------------------------------------------------------------------------------------------------------
     private void OnCollisionEnter2D(Collision2D collision) // this triggers when entering this collision to find the name of the thing that enters
     {

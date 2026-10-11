@@ -36,6 +36,26 @@ public class MagLoadingHandler_V01 : MonoBehaviour
         return isLoaded; // returns is loaded
 
     }
+
+    // new reset method TEMPORARY
+    public void setNumLoaded(int x) // this method will let us set how many rounds are loaded for despawn and resset purposes
+    {
+
+        howManyLoaded = x;
+        
+    }
+
+    public void resetLoaded() // this one esentially does the same thing, might just be easier to use, keeping the other method incase I need it, and will trim later
+    {
+
+        howManyLoaded = 0; // resets the num loaded to a flat zero
+        isLoaded = false; // resets the loaded flag to false for clean reset
+        FullSpriteObject.GetComponent<SpriteRenderer>().sprite = EmptySprite; // resetting the full status sprite to denote the mag being empty again
+        BulletSpriteObject.GetComponent<SpriteRenderer>().sprite = EmptySprite; // resseting the cosmetic bullet sprite to show empty mag again
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = true; // re-enabling the box collider so the object is draggable again
+        FullMagObject.GetComponent<BoxCollider2D>().enabled = false; // dissabling the full mag object so the player cannot load an empty mag to the rifle
+
+    }
     
     // VVVV COLLISION CHECKS VVVV ----------------------------------------------------------------------------------------------------------------------------
    
@@ -65,7 +85,7 @@ public class MagLoadingHandler_V01 : MonoBehaviour
         {
 
             if (collidedObject == loadObject.name & Input.GetMouseButtonUp(0)) // this should hopefully check to see if the load object is touching and if the mouse has just been let go
-            {
+            { // one issue, this works for the original magazine, but not for its clone... how to fix, how to fix? maybe just ignore and just slip around the original for now? add this to the list of things needed to fix
 
                 GameObject.Find("box of bullets").GetComponent<BulletSpawnHandler_V1>().allowParticle(false); // dissables the despawn particle when loading
                 howManyLoaded += 1;

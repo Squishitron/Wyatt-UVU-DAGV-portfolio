@@ -42,6 +42,19 @@ public class GunLoadingHandler_V01 : MonoBehaviour
     }
 
     // not sure we need these methods for this part, but I'll keep them for a second so I can have them if needed
+    // THEY WERE NEEDED HAHAHAHAHAHAHHA
+    // ah it feels good to already have the methods you need
+
+    // anyway, time for the *new* loaded number reset method
+    public void resetLoaded()
+    {
+
+        howManyLoaded = 0; // resets the loaded number to zero when called / used for load reset
+        isLoaded = false; // resets loaded status to false (aka empty)
+        SpriteObject.GetComponent<SpriteRenderer>().sprite = EmptySprite; // resets status sprite to empty to denote the reset
+        ChildObject.GetComponent<BoxCollider2D>().enabled = true; // re enables the box collider so child object is draggable again
+
+    }
     
     // VVVV COLLISION CHECKS VVVV ----------------------------------------------------------------------------------------------------------------------------
    
