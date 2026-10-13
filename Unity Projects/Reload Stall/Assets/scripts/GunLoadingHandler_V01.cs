@@ -99,9 +99,13 @@ public class GunLoadingHandler_V01 : MonoBehaviour
             if (howManyLoaded >= howManyToLoad) // checks to see if the amount of bullets loaded increases enough to trigger full load
             {
 
-                loadObject.gameObject.GetComponent<BoxCollider2D>().enabled = false; // turns off the collider to dissable any more loading
+                
                 ChildObject.transform.position = new Vector3 (ME.transform.position.x, ME.transform.position.y); // sets the load object position to this objects position
                 // in this case this should be mag, but Im just trying not to hard code (to clarify this should absolutely work with anything you want to parent. Its just a tad spaghetti
+                loadObject.gameObject.GetComponent<BoxCollider2D>().enabled = false; // turns off the collider to dissable any more loading
+                // randomly moving this underneath just to see if that fixes the growing offset problem with the magazine
+                // that seems to have fixed it. I had just assumed it would follow its parent regardless, but aparently dissabling the hitbox then moving its parent leaves it behind while the parent moves
+                // carp, its still happening
                 ChildObject.GetComponent<BoxCollider2D>().enabled = false; //dissables the box collider on the child object (the one with the draggable) so that it cant be dragged anymore
                 setLoaded(true); // sets loaded to true for next step of the process
 
@@ -138,3 +142,6 @@ Debug.Log(hitObject); // checking to see if ray is working properly
                       // its not, this is a huge problem
 
 //if (Collision.GameObject.name == ) */
+
+// the load object hitbox is mother fuffing getting PUSHED around by the guns hitbox
+// It doesnt have a rigid body, I dont know why the fuff its doing that
